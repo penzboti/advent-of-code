@@ -6,7 +6,9 @@
 // also help from
 // https://doc.rust-lang.org/book/ch12-02-reading-a-file.html
 pub fn read_file(path: String) -> String {
-    let contents = std::fs::read_to_string(path)
+    println!("Reading file: {}", path);
+    let realpath = "input/".to_string() + &path;
+    let contents = std::fs::read_to_string(realpath)
         .expect("Something went wrong reading the file");
     return contents;
 }
@@ -30,3 +32,6 @@ pub fn split_at_empty_line(contents: String) -> Vec<String> {
     }
     return lines;
 }
+
+// some future update posibilites:
+// https://doc.rust-lang.org/book/ch12-05-working-with-environment-variables.html
