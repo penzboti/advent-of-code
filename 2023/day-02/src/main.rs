@@ -6,6 +6,8 @@ use std::collections::HashMap;
 fn part1() -> u32 {
     let lines: Vec<String> = split_at_newline(read_file("input.txt".to_string()));
 
+    // some help on hashmap population on initialization
+    // https://stackoverflow.com/questions/28392008/is-there-a-more-concise-or-declarative-way-to-initialize-a-hashmap
     let limit: HashMap<&str, u32> = HashMap::from([
         ("red", 12),
         ("green", 13),
@@ -15,6 +17,8 @@ fn part1() -> u32 {
     let mut sum = 0;
     for line in lines {
         let split_info: Vec<&str> = line.split(": ").collect();
+        // switched from char->int because what if the number is more than one character
+        // https://stackoverflow.com/questions/27043268/convert-a-string-to-int
         let linenum = split_info[0].split(' ').next_back().unwrap_or("x").to_string().parse::<u32>().unwrap_or(0);
         let mut goodline = true;
         // print!("Game {}: ", linenum);

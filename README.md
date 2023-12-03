@@ -1,5 +1,5 @@
 # info
-not including day if i didn't do it that day
+not including the day in the table if i didn't do it that day
 
 :star: for part 1
 
@@ -11,6 +11,8 @@ i also show the date when i did it in yy/mm/dd form
 | day | symbol | date |
 | - | :-: | - |
 | Day 1 | :star2: | 23/12/01 |
+| Day 2 | :star2: | 23/12/02 |
+| Day 3 | :star2: | 23/12/03 |
 
 # setup
 some initial advent of code help [from here](https://aoc.just2good.co.uk/)
