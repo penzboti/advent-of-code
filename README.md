@@ -17,6 +17,7 @@ i also show the date when i did it in yy/mm/dd form
 | Day 5 | :star: | 23/12/05 |
 | Day 6 | :star2: | 23/12/06 |
 | Day 8 | :star2: | 23/12/08<br />23/12/09 |
+| Day 9 | :star2: | 23/12/10 |
 
 # setup
 some initial advent of code help [from here](https://aoc.just2good.co.uk/)
@@ -24,5 +25,7 @@ some initial advent of code help [from here](https://aoc.just2good.co.uk/)
 git repo mostly came from [this video](https://youtu.be/W-wDptwcbz4?si=ncKqdFPM8jo7mQex)
 
 but some aditional stuff from [this video](https://youtu.be/fEQv-cqzbPg?si=xvTy8oTwGfjQlFrU)
+
+<!-- maybe experiment with justfiles -->
 
 <!-- ty for the tables: https://www.markdownguide.org/extended-syntax/#tables -->
