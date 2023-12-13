@@ -70,6 +70,7 @@ fn part1() -> u32 {
         else { h.r#type = Type::HighCard; }
     }
 
+    //* just clone them in a separate vector, compare letters or numbers (idk), then pop in the main array, and push them back in order
     //TODO then we compare the hands, and assign a rank to each one
     // it prob would've worked, if the elements were only enums
     // but at least i got to know that it works, at the link below
