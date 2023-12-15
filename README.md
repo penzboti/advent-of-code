@@ -18,6 +18,14 @@ i also show the date when i did it in yy/mm/dd form
 | Day 6 | :star2: | 23/12/06 |
 | Day 8 | :star2: | 23/12/08<br />23/12/09 |
 | Day 9 | :star2: | 23/12/10 |
+| Day 14 | :star: | 23/12/15 |
+| Day 15 | :star2: | 23/12/15 |
+
+days that i want to do still in this year:
+- do day 5 part 2
+- finish day 7
+- day 10
+- day 14
 
 # setup
 some initial advent of code help [from here](https://aoc.just2good.co.uk/)
