@@ -25,7 +25,7 @@ days that i want to do still in this year:
 - do day 5 part 2
 - finish day 7
 - day 10
-- day 14
+- day 16
 
 # setup
 some initial advent of code help [from here](https://aoc.just2good.co.uk/)
