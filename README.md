@@ -20,12 +20,15 @@ i also show the date when i did it in yy/mm/dd form
 | Day 9 | :star2: | 23/12/10 |
 | Day 14 | :star: | 23/12/15 |
 | Day 15 | :star2: | 23/12/15 |
+| Day 16 | :star2: | 23/12/19 |
 
 days that i want to do still in this year:
 - do day 5 part 2
 - finish day 7
 - day 10
 - day 16
+- day 18
+- day 19
 
 # setup
 some initial advent of code help [from here](https://aoc.just2good.co.uk/)
