@@ -23,11 +23,9 @@ i also show the date when i did it in yy/mm/dd form
 | Day 16 | :star2: | 23/12/19 |
 
 days that i want to do still in this year:
-- do day 5 part 2
+- day 5 part 2
 - finish day 7
 - day 10
-- day 16
-- day 18
 - day 19
 
 # setup
