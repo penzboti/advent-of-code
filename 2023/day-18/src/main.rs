@@ -14,6 +14,7 @@ use crate::Direction::*;
 struct Instruction {
     direction: Direction,
     distance: u16,
+    // only needed in part 2 prob
     _color: String,
 }
 
@@ -33,6 +34,7 @@ fn part1() -> u32 {
             Instruction {
                 direction,
                 distance: split[1].parse::<u16>().unwrap(),
+                // https://users.rust-lang.org/t/fast-removing-chars-from-string/24554/2
                 _color: split[2].replace(&['(', ')'][..], "").to_string(),
             }
         })
@@ -51,8 +53,6 @@ fn part1() -> u32 {
             Up => {y-=dist; if y < min_y {min_y = y;}},
         }
     }
-
-    println!("x: {} {} y: {} {}", min_x, max_x, min_y, max_y);
 
     let mut lagoon: Vec<Vec<String>> = Vec::new();
     for _ in 0..(max_y-min_y+1) {
@@ -103,61 +103,77 @@ fn part1() -> u32 {
     // i might watch some youtube videos on how to solve this, but i'm not sure.
     // no star today
     // btw it's been 3.5 hours. this melted my brain multiple times.
-    for y in 0..lagoon.len() {
-        for x in 0..lagoon[0].len() {
-            let vertical = lagoon.iter().map(|row| row[x].clone()).collect::<Vec<String>>();
-            let horizontal = &lagoon[y];
-            let mut topcount: i16 = -1;
-            for i in 0..y+1 {
-                if vertical[i] == "#" {
-                    topcount = i as i16;
-                }
-            }
-            let mut botcount: i16 = -1;
-            for i in y..vertical.len() {
-                if vertical[i] == "#" {
-                    botcount = x as i16 + i as i16;
-                }
-            }
-            let mut leftcount: i16 = -1;
-            for i in 0..x+1 {
-                if horizontal[i] == "#" {
-                    leftcount = i as i16;
-                }
-            }
-            let mut rightcount: i16 = -1;
-            for i in x..horizontal.len() {
-                if horizontal[i] == "#" {
-                    rightcount = x as i16 + i as i16;
-                }
-            }
-            if botcount != -1 && topcount != -1 && leftcount != -1 && rightcount != -1 {
-                // if botcount - topcount > 1 && rightcount - leftcount > 1 {
-                //     for i in topcount+1..botcount {
-                //         for j in leftcount+1..rightcount {
-                            lagoon[y][x] = "#".to_string();
-                //         }
-                //     }
-                // }
-            } else {
-                // println!("{} {} {} {}", topcount, botcount, leftcount, rightcount);
-            }
-        }
-    }
+
+    //* method 1 can be seen here:
+    // for y in 0..lagoon.len() {
+    //     let mut wallstart = 0;
+    //     let mut lastwall = 0;
+    //     let mut out_of_bounds: bool = true;
+    //     for x in 0..lagoon[0].len() {
+    //         if lagoon[y][x] == "#" {
+    //             if out_of_bounds {
+    //                 wallstart = x;
+    //                 out_of_bounds = false;
+    //             }
+    //             if !out_of_bounds && x-lastwall > 1 && x != wallstart {
+    //                 for i in wallstart..x {
+    //                     lagoon[y][i] = "#".to_string();
+    //                 }
+    //                 out_of_bounds = true;
+    //             }
+    //             lastwall = x;
+    //         }
+    //     }
+    // }
+
+
+    //* method 2 can be seen here:
+    // for y in 0..lagoon.len() {
+    //     for x in 0..lagoon[0].len() {
+    //         let vertical = lagoon.iter().map(|row| row[x].clone()).collect::<Vec<String>>();
+    //         let horizontal = &lagoon[y];
+    //         let mut topcount: i16 = -1;
+    //         for i in 0..y+1 {
+    //             if vertical[i] == "#" {
+    //                 topcount = i as i16;
+    //             }
+    //         }
+    //         let mut botcount: i16 = -1;
+    //         for i in y..vertical.len() {
+    //             if vertical[i] == "#" {
+    //                 botcount = x as i16 + i as i16;
+    //             }
+    //         }
+    //         let mut leftcount: i16 = -1;
+    //         for i in 0..x+1 {
+    //             if horizontal[i] == "#" {
+    //                 leftcount = i as i16;
+    //             }
+    //         }
+    //         let mut rightcount: i16 = -1;
+    //         for i in x..horizontal.len() {
+    //             if horizontal[i] == "#" {
+    //                 rightcount = x as i16 + i as i16;
+    //             }
+    //         }
+    //         if botcount != -1 && topcount != -1 && leftcount != -1 && rightcount != -1 {
+    //             lagoon[y][x] = "#".to_string();
+    //         }
+    //     }
+    // }
 
     // print the map
     for y in 0..lagoon.len() {
-        // print!("{}: ", y);
         for x in 0..lagoon[0].len() {
             print!("{}", lagoon[y][x]);
         }
         println!();
     }
 
+    // this flatten() looks cool
     lagoon.iter().flatten().filter(|&x| x == "#").count() as u32
 }
 
 fn main() {
     println!("Part 1: {}", part1());
-    // aint no way im doing part 2
 }
