@@ -21,12 +21,14 @@ i also show the date when i did it in yy/mm/dd form
 | Day 14 | :star: | 23/12/15 |
 | Day 15 | :star2: | 23/12/15 |
 | Day 16 | :star2: | 23/12/19 |
+| Day 19 | :star: | 23/12/22 |
 
 days that i want to do still in this year:
-- day 5 part 2
-- finish day 7
-- day 10
-- day 19
+- day 5 part 2 (if you give a seed a fertelizer, but the hard one)
+- day 7 (camel cards)
+- day 10 (pipe maze)
+- day 19 part 2 (rules & parts)
+- day 21 (gardener step counter)
 
 # setup
 some initial advent of code help [from here](https://aoc.just2good.co.uk/)
