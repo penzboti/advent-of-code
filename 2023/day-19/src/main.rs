@@ -250,6 +250,8 @@ fn part2() -> u64 {
                     check_flow = &current_workflow.else_rule;
                 }
                 let rule = &current_workflow.rules[index];
+                // iter_mut exists
+                // https://stackoverflow.com/questions/48551026/mutable-reference-to-an-item-using-find-in-rust
                 let current_part: &mut RatingPart2 = rating.iter_mut().find(|x| x.part == rule.part).unwrap();
                 match rule.mode {
                     Mode::Less => {
