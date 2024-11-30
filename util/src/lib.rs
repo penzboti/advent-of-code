@@ -5,6 +5,15 @@
 
 // also help from
 // https://doc.rust-lang.org/book/ch12-02-reading-a-file.html
+
+// https://stackoverflow.com/questions/43292357/how-can-one-detect-the-os-type-using-rust/47805781
+#[cfg(target_os = "linux")]
+static ENDLINE: &str = "\n";
+#[cfg(target_os = "windows")]
+static ENDLINE: &str = "\r\n";
+#[cfg(target_os = "macos")]
+static ENDLINE: &str = "\r";
+
 pub fn read_file(path: String) -> String {
     println!("Reading file: {}", path);
     let realpath = "input/".to_string() + &path;
@@ -16,7 +25,7 @@ pub fn read_file(path: String) -> String {
 pub fn split_at_newline(contents: String) -> Vec<String> {
     let mut lines: Vec<String> = Vec::new();
     // https://stackoverflow.com/questions/1761051/difference-between-n-and-r
-    for line in contents.split("\r\n") {
+    for line in contents.split(ENDLINE) {
         // idk if i should disable empty lines here
         if line != "" {
             lines.push(line.to_string());
@@ -27,7 +36,8 @@ pub fn split_at_newline(contents: String) -> Vec<String> {
 
 pub fn split_at_empty_line(contents: String) -> Vec<String> {
     let mut lines: Vec<String> = Vec::new();
-    for line in contents.split("\r\n\r\n") {
+    let double_split: String = format!("{}{}",ENDLINE,ENDLINE);
+    for line in contents.split(&double_split) {
         lines.push(line.to_string());
     }
     return lines;

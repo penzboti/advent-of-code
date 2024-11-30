@@ -1,8 +1,14 @@
-# util lib
+# keeping out util lib /target files
 */target/*
 
+# to not include input file (demo files are fine)
+input.txt
 
-# trough the years
+# cargo.lock files are useless for this purpose
+# although 2023's .lock files are probably going to stay.
+Cargo.lock
+
+# include dayily exe-s, while keeping out other /target files
 */*/target/*
 
 !*/*/target/debug
