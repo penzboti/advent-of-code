@@ -8,6 +8,9 @@ not including the day in the table if i didn't do it that day
 i also show the date when i did it in yy/mm/dd form
 
 # 2023
+<details>
+<summary>Expand table</summary>
+
 | day | symbol | date |
 | - | :-: | - |
 | Day 1 | :star2: | 23/12/01 |
@@ -23,16 +26,12 @@ i also show the date when i did it in yy/mm/dd form
 | Day 15 | :star2: | 23/12/15 |
 | Day 16 | :star2: | 23/12/19 |
 | Day 19 | :star: | 23/12/22 |
+</details>
 
-days that i want to do still in this year:
-- day 5 part 2 (if you give a seed a fertelizer, but the hard one)
-- day 10 (pipe maze)
-- day 19 part 2 (rules & parts)
-- day 21 (gardener step counter)
+# 2024
 
-would still be cool to do:
-- day 11 (cosmic expansion)
-- day 20 (pulse propagation)
+| day | symbol | date |
+| - | :-: | - |
 
 # setup
 some initial advent of code help [from here](https://aoc.just2good.co.uk/)
