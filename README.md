@@ -33,6 +33,7 @@ i also show the date when i did it in yy/mm/dd form
 | day | symbol | date |
 | - | :-: | - |
 | Day 1 | :star2: | 24/12/01 |
+| Day 2 | :star2: | 24/12/02 |
 
 # setup
 some initial advent of code help [from here](https://aoc.just2good.co.uk/)
