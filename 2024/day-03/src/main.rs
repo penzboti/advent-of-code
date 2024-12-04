@@ -110,7 +110,30 @@ fn part2() -> u32 {
     n
 }
 
+use regex::Regex;
+
+fn part1_regex() -> u32 {
+    let file = read_file("input.txt".to_owned());
+    let regex = Regex::new(r"mul\((\d+),(\d+)\)").unwrap();
+    let n = regex.captures_iter(&file).map(|x| x.extract::<2>()).map(|(_, x)| (x[0].parse::<u32>().unwrap(), x[1].parse::<u32>().unwrap())).map(|(x, y)| x*y).sum();
+    n
+}
+
+fn part2_regex() -> u32 {
+    let file = read_file("input.txt".to_owned());
+
+    // i may have used chatgpt to allow '.' to match '\n' characters
+    let replaceregex = Regex::new(r"(?s)don't\(\).*?(do\(\)|$)").unwrap();
+    let newfile = replaceregex.replace_all(&file, "").to_string();
+
+    let getregex = Regex::new(r"mul\((\d+),(\d+)\)").unwrap();
+    let n = getregex.captures_iter(&newfile).map(|x| x.extract::<2>()).map(|(_, x)| (x[0].parse::<u32>().unwrap(), x[1].parse::<u32>().unwrap())).map(|(x, y)| x*y).sum();
+    n
+}
+
 fn main() {
-    // println!("Part 1: {}", part1());
+    println!("Part 1: {}", part1());
     println!("Part 2: {}", part2());
+    println!("Part 1 Regex: {}", part1_regex());
+    println!("Part 2 Regex: {}", part2_regex());
 }

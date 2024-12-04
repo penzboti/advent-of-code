@@ -8,10 +8,6 @@ input.txt
 # although 2023's .lock files are probably going to stay.
 Cargo.lock
 
-# include dayily exe-s, while keeping out other /target files
 */*/target/*
-
-!*/*/target/debug
-*/*/target/debug/*
-
-!*/*/target/debug/*.exe
+# not including .exe-s anymore because of linux
+# and because i never used them anyway

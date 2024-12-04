@@ -1,7 +1,8 @@
-// #![warn(unused_variables)]
-
 use util::{split_at_newline, read_file};
-// use ndarray::Array2;
+
+fn get_text(table: Vec<Vec<char>>, x: usize, y: usize, mult_x: i32, mult_y: i32) -> String {
+    (0..4).map(|n| table[(y as i32+ n as i32*mult_y) as usize][(x as i32+ n as i32*mult_x) as usize]).collect::<Vec<char>>().iter().collect::<String>()
+}
 
 fn part1() -> u32 {
     let mut n = 0;
@@ -30,16 +31,15 @@ fn part1() -> u32 {
     for (x, y) in xlocations {
         // https://stackoverflow.com/questions/74998452/how-do-i-map-a-range
         // https://stackoverflow.com/questions/70050432/how-do-i-join-a-char-vector-in-rust
-        let horizontal = (0..4).map(|n| table[y+0][x+n]).collect::<Vec<char>>().iter().collect::<String>();
-        let vertical = (0..4).map(|n| table[y+n][x+0]).collect::<Vec<char>>().iter().collect::<String>();
+        let horizontal = get_text(table.clone(), x, y, 0, 1);
+        let vertical = get_text(table.clone(), x, y, 1, 0);
+        let backwards_horizontal = get_text(table.clone(), x, y, 0, -1);
+        let backwards_vertical = get_text(table.clone(), x, y, -1, 0);
         // --
-        let backwards_horizontal = (0..4).map(|n| table[y+0][x-n]).collect::<Vec<char>>().iter().collect::<String>();
-        let backwards_vertical = (0..4).map(|n| table[y-n][x+0]).collect::<Vec<char>>().iter().collect::<String>();
-        // --
-        let topright = (0..4).map(|n| table[y-n][x+n]).collect::<Vec<char>>().iter().collect::<String>();
-        let bottomright = (0..4).map(|n| table[y+n][x+n]).collect::<Vec<char>>().iter().collect::<String>();
-        let bottomleft = (0..4).map(|n| table[y+n][x-n]).collect::<Vec<char>>().iter().collect::<String>();
-        let topleft = (0..4).map(|n| table[y-n][x-n]).collect::<Vec<char>>().iter().collect::<String>();
+        let topright = get_text(table.clone(), x, y, 1, 1);
+        let bottomright = get_text(table.clone(), x, y, 1, -1);
+        let bottomleft = get_text(table.clone(), x, y, -1, -1);
+        let topleft = get_text(table.clone(), x, y, -1, 1);
 
         let options = vec![horizontal, vertical, backwards_vertical, backwards_horizontal, topleft, topright, bottomleft, bottomright];
         n += options.iter().map(|x| x=="XMAS").map(|x| if x {1} else {0}).sum::<u32>();
@@ -57,7 +57,7 @@ fn part1() -> u32 {
     n
 }
 
-fn part2 () -> u32 {
+fn part2() -> u32 {
     let mut n = 0;
     let file: Vec<Vec<char>> = split_at_newline(read_file("input.txt".to_string())).iter().map(|x| x.chars().collect()).collect();
     let prewidth = file.len(); let preheight = file[0].len();
@@ -86,8 +86,8 @@ fn part2 () -> u32 {
         areastring.replace_range(3-1..4-1, "");
         areastring.replace_range(5-2..6-2, "");
         areastring.replace_range(7-3..8-3, "");
-
         // println!("{}", areastring);
+
         let options = ["MMASS", "SMASM", "MSAMS", "SSAMM"];
         if options.contains(&areastring.as_str()) {n+=1}
     }
