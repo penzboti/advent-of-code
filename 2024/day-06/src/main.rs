@@ -159,6 +159,7 @@ fn part2() -> u32 {
                 },
                 _ => {
                     let dirnum = predir as i32;
+                    // https://stackoverflow.com/questions/43983414/how-to-convert-a-rust-char-to-an-integer-so-that-1-becomes-1
                     let number: i32 = c.to_digit(10).unwrap() as i32;
                     // if [number-8,number-4,number-2,number-1].contains(&number) {n+=1; break;}
                     if number == dirnum {n+=1;break;}
