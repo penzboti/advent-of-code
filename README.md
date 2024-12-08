@@ -39,6 +39,7 @@ i also show the date when i did it in yy/mm/dd form
 | Day 5 | :star2: | 24/12/05 |
 | Day 6 | :star: | 24/12/06 |
 | Day 7 | :star2: | 24/12/07 |
+| Day 8 | :star2: | 24/12/08 |
 
 - day 6 part 2 doable
 
