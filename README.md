@@ -41,8 +41,9 @@ i also show the date when i did it in yy/mm/dd form
 | Day 7 | :star2: | 24/12/07 |
 | Day 8 | :star2: | 24/12/08 |
 | Day 9 | :star2: | 24/12/09 |
+| Day 10 | :star2: | 24/12/10 |
 
-- day 6 part 2 doable
+- day 6 part 2 doable, or it might not be as doable as it seems
 
 # setup
 some initial advent of code help [from here](https://aoc.just2good.co.uk/)
