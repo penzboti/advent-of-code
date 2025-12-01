@@ -8,6 +8,9 @@ not including the day in the table if i didn't do it that day
 i also show the date when i did it in yy/mm/dd form
 
 # 2023
+
+> using rust
+
 <details>
 <summary>Expand table</summary>
 
@@ -30,6 +33,11 @@ i also show the date when i did it in yy/mm/dd form
 
 # 2024
 
+- day 6 part 2 doable, or it might not be as doable as it seems
+
+<details>
+<summary>Expand table</summary>
+
 | day | symbol | date |
 | - | :-: | - |
 | Day 1 | :star2: | 24/12/01 |
@@ -43,8 +51,15 @@ i also show the date when i did it in yy/mm/dd form
 | Day 9 | :star2: | 24/12/09 |
 | Day 10 | :star2: | 24/12/10 |
 | Day 11 | :star: | 24/12/11 |
+</details>
 
-- day 6 part 2 doable, or it might not be as doable as it seems
+# 2025
+
+> switched to c++ this year
+
+| day | symbol | date |
+| - | :-: | - |
+| | |
 
 # setup
 some initial advent of code help [from here](https://aoc.just2good.co.uk/)
