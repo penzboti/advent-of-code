@@ -2,6 +2,7 @@
 */target/*
 
 # to not include input file (demo files are fine)
+# it is an ask from the aoc creator
 input.txt
 
 # cargo.lock files are useless for this purpose
@@ -9,5 +10,8 @@ input.txt
 Cargo.lock
 
 */*/target/*
-# not including .exe-s anymore because of linux
+# not including .exe-s (bin files) anymore because of linux
 # and because i never used them anyway
+
+# switched to c++ workflow, and now binary file looks like this
+main
