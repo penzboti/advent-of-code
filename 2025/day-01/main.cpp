@@ -7,6 +7,8 @@ using namespace std;
 // #define FILE "input/demo1.txt"
 #define FILE "input/input.txt"
 
+// this is unneccessary at this level
+// since we use it in a switch case anyway
 enum DIRECTION {
   LEFT,
   RIGHT

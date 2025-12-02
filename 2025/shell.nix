@@ -17,6 +17,6 @@
 
     shellHook = ''
       alias build="g++ main.cpp -o main && echo 'built'";
-      alias run="build && ./main;
+      alias run="build && ./main";
     '';
 }
