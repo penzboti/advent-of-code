@@ -13,5 +13,6 @@ Cargo.lock
 # not including .exe-s (bin files) anymore because of linux
 # and because i never used them anyway
 
-# switched to c++ workflow, and now binary file looks like this
+# switched to c++ workflow, and now binary files look like these
 main
+main.exe
