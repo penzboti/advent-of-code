@@ -7,19 +7,20 @@ using namespace std;
 // #define FILE "input/demo1.txt"
 #define FILE "input/input.txt"
 
-// this is unneccessary at this level
-// since we use it in a switch case anyway
-enum DIRECTION {
-  LEFT,
-  RIGHT
-};
+// enum concept
+// enum DIRECTION {
+//   LEFT,
+//   RIGHT
+// };
 
-// if i ever need structures, here they are
+// structure concept
 // struct DATA {
 //   DIRECTION d;
 //   int i;
 //   string t;
 // };
+
+// vector concept
 // vector<DATA> data;
 // data.push_back(DATA {
 //                  file[0] == 'L' ? LEFT : RIGHT,
@@ -34,14 +35,14 @@ int part1() {
   string file;
   ifstream read_file(FILE);
   while (getline (read_file, file)) {
-    DIRECTION dir = file[0] == 'L' ? LEFT : RIGHT;
+    char dir = file[0];
     int num = stoi(file.substr(1));
 
     switch (dir) {
-      case LEFT:
+      case 'L':
         cur -= num;
         break;
-      case RIGHT:
+      case 'R':
         cur += num;
         break;
     }
@@ -70,15 +71,15 @@ int part2() {
   string file;
   ifstream read_file(FILE);
   while (getline (read_file, file)) {
-    DIRECTION dir = file[0] == 'L' ? LEFT : RIGHT;
+    char dir = file[0];
     int num = stoi(file.substr(1));
 
     for (int i = 0; i < num; i++) {
       switch (dir) {
-        case LEFT:
+        case 'L':
           cur -= 1;
           break;
-        case RIGHT:
+        case 'R':
           cur += 1;
           break;
       }
@@ -96,10 +97,11 @@ int part2() {
 
 
 int main() {
-  // this is better for debugging purposes
   int p1 = part1();
   int p2 = part2();
-  cout << "part 1: " << p1 << endl;
-  cout << "part 2: " << p2 << endl;
+  // it should be noted that cout is faster;
+  // cout << "part 1: " << p1 << endl;
+  printf("part 1: %d\n", p1);
+  printf("part 2: %d\n", p2);
   return 0;
 }

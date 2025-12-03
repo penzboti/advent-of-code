@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <inttypes.h>
 
 using namespace std;
 
@@ -36,8 +37,8 @@ int part1() {
   return n;
 }
 
-long long part2() {
-  long long n = 0;
+int64_t part2() {
+  int64_t n = 0;
 
   string line;
   ifstream read_line(FILE);
@@ -54,7 +55,7 @@ long long part2() {
     // what i've realised after reading some things on reddit
     // you can make the largest number by finding the largest digit in a range
     // where you know the 12 digits will still fit
-    long long max = 0;
+    int64_t max = 0;
     int len = line.length();
     int range_start = 0;
 
@@ -74,7 +75,7 @@ long long part2() {
 
       // powering INTEGERS is insane: https://stackoverflow.com/questions/1505675/power-of-an-integer-in-c
       // why is the default implementation in FLOATS ONLY????
-      long long power = max_digit;
+      int64_t power = max_digit;
       for (int p = 1; p < (12-i); p++) power *= 10;
       max += power;
       // printf("max digit at %d: %d\n", i, max_digit);
@@ -88,8 +89,8 @@ long long part2() {
 
 int main() {
   int p1 = part1();
-  long long p2 = part2();
+  int64_t p2 = part2();
   printf("part 1: %d\n", p1);
-  printf("part 2: %lld\n", p2);
+  printf("part 2: %" PRId64 "\n", p2);
   return 0;
 }
