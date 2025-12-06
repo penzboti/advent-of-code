@@ -64,6 +64,7 @@ i also show the date when i did it in yy/mm/dd form
 | Day 3 | :star2: | 25/12/03 |
 | Day 4 | :star2: | 25/12/04 |
 | Day 5 | :star2: | 25/12/05 |
+| Day 6 | :star2: | 25/12/06 |
 
 # setup
 some initial advent of code help [from here](https://aoc.just2good.co.uk/)
