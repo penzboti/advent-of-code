@@ -4,6 +4,7 @@
 #include <sstream>
 #include <cmath> // sqrt (but instead) hypot (which is sqrt(pow(x) + pow(y) + pow(z)))
 #include <algorithm> // sort and find(_if)
+#include <inttypes.h>
 
 using namespace std;
 
@@ -23,8 +24,7 @@ struct POS {
 };
 
 struct DIST {
-  POS a,b; // this might be not even needed
-  int pos_a, pos_b;
+  int i, j;
   int d;
 };
 
@@ -134,7 +134,7 @@ int part1() {
       POS b = positions[j];
       int dist = distance(a,b);
       DIST d = {
-        a, b, i, j, dist
+        i, j, dist
       };
 
       distances.push_back(d);
@@ -147,16 +147,11 @@ int part1() {
 
   sort(distances.begin(),distances.end(), customSort);
 
-  // for (DIST d : distances) {
-  //   printf("d!: %d %d %d : %d %d %d -> %d\n",d.a.x,d.a.y,d.a.z,d.b.x,d.b.y,d.b.z,d.d);
-  // }
-
   UnionFind uf(positions.size());
 
   for (int i = 0; i < LENGTH; i++) {
     DIST d = distances[i];
-    // printf("d: %d; i: %d; j: %d\n", d.d,d.pos_a,d.pos_b);
-    uf.unite(d.pos_a,d.pos_b);
+    uf.unite(d.i,d.j);
   }
 
   vector<int> sizes = uf.sizes;
@@ -167,8 +162,89 @@ int part1() {
   return n;
 }
 
+int64_t part2() {
+  int64_t n = 0;
+
+  vector<POS> positions;
+
+  string line;
+  ifstream read_line(FILE);
+  while (getline(read_line, line)) {
+    string segment;
+    stringstream split(line);
+    POS p;
+    int i = 0;
+    while (getline(split,segment,',')) {
+      i++;
+      int num = stoi(segment);
+      // printf("%d %d\n",i,num);
+      switch (i) {
+        case 1:
+          p.x = num;
+          break;
+        case 2:
+          p.y = num;
+          break;
+        case 3:
+          p.z = num;
+          break;
+      }
+    }
+    positions.push_back(p);
+  }
+
+  vector<DIST> distances;
+
+  for (int i = 0; i < positions.size(); i++) {
+    POS a = positions[i];
+    for (int j = i+1; j < positions.size(); j++) {
+      POS b = positions[j];
+      int dist = distance(a,b);
+      DIST d = {
+        i, j, dist
+      };
+
+      distances.push_back(d);
+    }
+  }
+
+  struct {
+    bool operator () (DIST a, DIST b) const { return a.d < b.d; }
+  } customSort;
+
+  sort(distances.begin(),distances.end(), customSort);
+
+  UnionFind uf(positions.size());
+
+  bool go = true;
+  for (int i = 0; i < distances.size(); i++) {
+    DIST d = distances[i];
+    uf.unite(d.i,d.j);
+
+    vector<int> sizes = uf.sizes;
+    sort(sizes.begin(), sizes.end(), greater<int>());
+    sizes.erase(find(sizes.begin(),sizes.end(),0),sizes.end());
+
+    // printf("%d\n", sizes.size());
+
+    if (sizes.size() == 1) {
+      POS a = positions[d.i];
+      POS b = positions[d.j];
+      int64_t x1 = a.x;
+      int64_t x2 = b.x;
+      n += x1 * x2;
+      break;
+    }
+
+  }
+
+  return n;
+}
+
 int main() {
   int p1 = part1();
   printf("part 1: %d\n",p1);
+  int64_t p2 = part2();
+  printf("part 2: %" PRId64 "\n",p2);
   return 0;
 }
